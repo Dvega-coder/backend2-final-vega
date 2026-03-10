@@ -18,13 +18,15 @@
       <tr data-id="{{this.product._id}}">
         <td>{{this.product.title}}</td>
         <td>${{this.product.price}}</td>
-
         <td>
-          <input type="number" value="{{this.quantity}}" class="quantity-input" min="1" />
+          <input
+            type="number"
+            value="{{this.quantity}}"
+            class="quantity-input"
+            min="1"
+          />
         </td>
-
         <td>${{multiply this.product.price this.quantity}}</td>
-
         <td>
           <button class="update-btn">Actualizar</button>
           <button class="remove-btn">Eliminar</button>
@@ -36,11 +38,22 @@
 
 <h3>Total: ${{total cart.products}}</h3>
 
-<button id="clearCart">🧹 Vaciar Carrito</button>
+<div style="margin-top: 20px; display: flex; gap: 10px;">
+  <button id="clearCart" style="background: #ff5722;">🧹 Vaciar Carrito</button>
+  <button id="purchaseCart" style="background: #4CAF50; color: white; padding: 10px 20px; font-size: 16px; cursor: pointer; border: none; border-radius: 5px;">
+    🎫 Finalizar Compra
+  </button>
+</div>
 
 {{else}}
 <p>Tu carrito está vacío.</p>
 {{/if}}
+
+
+<script>
+  const urlParams = new URLSearchParams(window.location.search);
+  const CART_ID = urlParams.get('cartId') || localStorage.getItem('cartId');
+</script>
 
 <script src="/js/cart.js"></script>
 

@@ -1,9 +1,8 @@
-// --- products.js ---
-// Maneja agregar productos al carrito y crea un carrito automáticamente si no existe.
+
 
 let CART_ID = localStorage.getItem("cartId");
 
-// 🔧 Crear o recuperar carrito automáticamente
+// Crear o recuperar carrito automáticamente
 async function ensureCart() {
   try {
     if (!CART_ID) {
@@ -26,7 +25,7 @@ async function ensureCart() {
 
 ensureCart();
 
-// 🟣 Agregar producto al carrito
+//  Agregar producto al carrito
 document.addEventListener("click", async (e) => {
   if (e.target.classList.contains("add-to-cart")) {
     const card = e.target.closest(".product-card");

@@ -16,13 +16,11 @@
   <p><strong>Disponible:</strong> {{#if product.status}}Sí{{else}}No{{/if}}</p>
   <p><strong>Stock:</strong> {{product.stock}}</p>
 
-  <!-- 🔢 Selector de cantidad -->
   <div class="qty-box">
     <label for="qty">Cantidad:</label>
     <input id="qty" type="number" value="1" min="1" />
   </div>
 
-  <!-- 🛒 Botón agregar al carrito -->
   <button 
     id="addToCart" 
     data-id="{{product._id}}"
@@ -34,5 +32,11 @@
 
 <a href="/products">← Volver al listado</a>
 
+
+<script>
+  const CART_ID = "{{cartId}}";
+</script>
+
 <script src="/js/productDetail.js"></script>
+
 

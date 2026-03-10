@@ -1,9 +1,9 @@
-// --- public/js/realtime.js ---
+
 const socket = io();
 const productForm = document.getElementById("productForm");
 const productList = document.getElementById("productList");
 
-// 🟢 Agregar producto
+//  Agregar producto
 productForm.addEventListener("submit", async (e) => {
   e.preventDefault();
 
@@ -39,7 +39,7 @@ productForm.addEventListener("submit", async (e) => {
   }
 });
 
-// 🔴 Eliminar producto
+// Eliminar producto
 productList.addEventListener("click", async (e) => {
   if (e.target.classList.contains("delete-btn")) {
     const li = e.target.closest("li");
@@ -64,7 +64,7 @@ productList.addEventListener("click", async (e) => {
   }
 });
 
-// ♻️ Actualizar lista en tiempo real
+//  Actualizar lista en tiempo real
 socket.on("products", (products) => {
   productList.innerHTML = "";
   products.forEach((p) => {
